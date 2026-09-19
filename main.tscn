@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://nwaevkfxixxw"]
+
+[ext_resource type="Texture2D" uid="uid://b16c03d86wyio" path="res://nick.png" id="1_0xm2m"]
+[ext_resource type="Texture2D" uid="uid://c871qlj58mdfs" path="res://background.png" id="1_1bvp3"]
+[ext_resource type="Script" uid="uid://dorbs23fnn15o" path="res://player.gd" id="1_h2yge"]
+[ext_resource type="AudioStream" uid="uid://cjyy3c0uo7k63" path="res://MainMusic.mp3" id="4_1bvp3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h2yge"]
+size = Vector2(71, 63)
+
+[node name="Node" type="Node" unique_id=1951526610]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1804955320]
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=1187831327]
+polygon = PackedVector2Array(107, 796, 378, 811, 769, 811, 932, 808, 930, 672, 861, 719, 692, 723, 597, 723, 581, 771, 548, 707, 522, 712, 515, 740, 451, 726, 392, 681, 352, 707, 260, 693, 154, 690, 111, 730, 34, 683, 34, 745, 57, 796)
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=1014468938]
+position = Vector2(731, 409)
+texture = ExtResource("1_1bvp3")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=2135034984]
+polygon = PackedVector2Array(12, 11, 160, 6, 399, 7, 639, 2, 697, 4, 700, 88, 222, 94, 169, 140, 140, 180, 117, 205, 113, 260, 120, 404, 8, 418)
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=458786931]
+polygon = PackedVector2Array(918, 502, 1048, 403, 1229, 547, 1064, 648)
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=1188817349]
+build_mode = 1
+polygon = PackedVector2Array(12, 23, 1446, 11, 1451, 813, 1, 806)
+
+[node name="player" type="CharacterBody2D" parent="." unique_id=1230535195]
+position = Vector2(247, 173)
+script = ExtResource("1_h2yge")
+
+[node name="Sprite2D" type="Sprite2D" parent="player" unique_id=548118688]
+position = Vector2(338.1875, 104.21846)
+scale = Vector2(0.3113281, 0.29619232)
+texture = ExtResource("1_0xm2m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player" unique_id=1109449614]
+position = Vector2(339, 166.5)
+shape = SubResource("RectangleShape2D_h2yge")
+
+[node name="Camera2D" type="Camera2D" parent="player" unique_id=1291499431]
+position = Vector2(339, 178)
+zoom = Vector2(1.515, 1.515)
+position_smoothing_enabled = true
+position_smoothing_speed = 2.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1336255818]
+stream = ExtResource("4_1bvp3")
+volume_db = 0.913
+autoplay = true
